@@ -46,6 +46,7 @@ class Vehicle extends Model
     {
         if (!$this->image) return 'https://via.placeholder.com/600x400?text=No+Image';
         if (str_starts_with($this->image, 'http')) return $this->image;
-        return asset('uploads/vehicles/' . $this->image);
+        // Les fichiers uploadés sont dans storage/app/public/vehicles/ via store('vehicles','public')
+        return asset('storage/' . $this->image);
     }
 }

@@ -1,4 +1,4 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 @section('title', $vehicle->name . ' — PARDOX')
 
 @section('body')
@@ -250,7 +250,7 @@ function updatePrice() {
   document.getElementById('totalLine').textContent  = fmtDH(total);
   document.getElementById('acompteLine').textContent = fmtDH(acompte);
   document.getElementById('resteLine').textContent  = fmtDH(reste);
-  document.getElementById('totalBig').textContent   = fmtDH(total);
+  document.getElementById('totalBig').textContent   = fmtDH(reste);
   preview.classList.remove('d-none');
 
   // Update end min date

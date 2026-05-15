@@ -1,4 +1,4 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 @section('title','Bon de Réservation ' . $reservation->reservation_number . ' — PARDOX')
 
 @section('body')
@@ -77,7 +77,7 @@
     <div class="voucher-total-bar mt-3">
       <span>MONTANT TOTAL</span>
       <span style="font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;letter-spacing:.03em;">
-        {{ number_format($reservation->total_price,0,',',' ') }} DH
+        {{ number_format($reservation->reste,0,',',' ') }} DH
       </span>
     </div>
   </div>
