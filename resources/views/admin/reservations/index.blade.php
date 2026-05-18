@@ -58,34 +58,36 @@
           <td style="color:var(--cre-orange);font-weight:600;">{{ number_format($res->acompte,0,',',' ') }} DH</td>
           <td><span class="status-pill badge-{{ $res->status }}">{{ $res->status_label }}</span></td>
           <td>
-            <div class="d-flex gap-1 flex-wrap">
+            <div class="d-flex gap-1 align-items-center flex-nowrap">
               @if($res->status === 'pending')
               <form action="{{ route('admin.reservations.status',$res) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <input type="hidden" name="status" value="confirmed">
-                <button type="submit" class="btn btn-sm btn-success" title="Confirmer"><i class="bi bi-check-lg"></i></button>
+                <button type="submit" class="btn btn-sm btn-success" title="Confirmer" style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;"><i class="bi bi-check-lg"></i></button>
               </form>
               <form action="{{ route('admin.reservations.status',$res) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <input type="hidden" name="status" value="rejected">
-                <button type="submit" class="btn btn-sm btn-danger" title="Refuser"><i class="bi bi-x-lg"></i></button>
+                <button type="submit" class="btn btn-sm btn-danger" title="Refuser" style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;"><i class="bi bi-x-lg"></i></button>
               </form>
               @endif
               @if($res->status === 'confirmed')
               <form action="{{ route('admin.reservations.status',$res) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <input type="hidden" name="status" value="completed">
-                <button type="submit" class="btn btn-sm btn-info text-white" title="Marquer terminée">
+                <button type="submit" class="btn btn-sm btn-info text-white" title="Marquer terminée" style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;">
                   <i class="bi bi-flag"></i>
                 </button>
               </form>
               @endif
               {{-- Note modal trigger --}}
               <button type="button" class="btn btn-sm btn-pardo-outline" title="Ajouter note"
-                      data-bs-toggle="modal" data-bs-target="#noteModal{{ $res->id }}">
+                      data-bs-toggle="modal" data-bs-target="#noteModal{{ $res->id }}"
+                      style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;">
                 <i class="bi bi-chat-left-text"></i>
               </button>
-              <a href="{{ route('admin.voucher',$res) }}" class="btn btn-sm btn-pardo-outline" title="Bon">
+              <a href="{{ route('admin.voucher',$res) }}" class="btn btn-sm btn-pardo-outline" title="Bon"
+                 style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;">
                 <i class="bi bi-file-earmark-text"></i>
               </a>
             </div>

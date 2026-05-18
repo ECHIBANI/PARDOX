@@ -179,7 +179,7 @@
             <a href="{{ route('login') }}" class="btn btn-pardo-orange w-100 mb-2">
               <i class="bi bi-box-arrow-in-right me-2"></i>Se connecter
             </a>
-            <a href="{{ route('register') }}" class="btn w-100" style="border:1.5px solid rgba(255,255,255,.3);color:#fff;border-radius:var(--radius-sm);font-weight:600;">
+            <a href="{{ route('register') }}" class="btn w-100" style="border:2px solid rgba(255,255,255,.75);color:#fff;border-radius:var(--radius-sm);font-weight:600;">
               Créer un compte
             </a>
           </div>

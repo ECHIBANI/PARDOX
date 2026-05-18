@@ -18,7 +18,7 @@
 :root {
     --cre-blue:#000000; --cre-blue-dark:#111111; --cre-orange:#000000;
     --cre-dark:#050505; --cre-text:#111111; --cre-muted:#666666;
-    --cre-border:#e5e5e5; --cre-bg:#ffffff;
+    --cre-border:#c5c5c5; --cre-bg:#ffffff;
     --radius-sm:8px; --radius-md:14px; --radius-lg:20px;
     --shadow-sm:0 2px 8px rgba(0,0,0,.04); --shadow-md:0 8px 30px rgba(0,0,0,.08); --shadow-lg:0 20px 60px rgba(0,0,0,.1);
 }
@@ -81,7 +81,7 @@ body { font-family:'DM Sans',sans-serif; color:var(--cre-text); background:var(-
 .badge-confirmed { background:#f0fdf4; color:#16a34a; border:1px solid #bbf7d0; }
 .badge-rejected  { background:#fef2f2; color:#dc2626; border:1px solid #fecaca; }
 .badge-completed { background:#f0f9ff; color:#0284c7; border:1px solid #bae6fd; }
-.status-pill { display:inline-flex; align-items:center; gap:.35rem; font-size:.75rem; font-weight:600; padding:.3rem .75rem; border-radius:50px; }
+.status-pill { display:inline-flex; align-items:center; justify-content:center; gap:.35rem; font-size:.75rem; font-weight:600; padding:.3rem .75rem; border-radius:50px; min-width:110px; text-align:center; white-space:nowrap; }
 
 /* ─── ADMIN SIDEBAR ─── */
 .admin-sidebar { width:240px; min-height:100vh; background:#fff; border-right:1px solid var(--cre-border); }
