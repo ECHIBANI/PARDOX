@@ -368,7 +368,7 @@ body.page-animating .table-card {
         </li>
 
         <li style="margin-top:1rem;">
-          <form action="{{ route('logout') }}" method="POST">
+          <form action="{{ parse_url(route('logout'), PHP_URL_PATH) }}" method="POST">
             @csrf
             <button type="submit" class="sidebar-link" style="color:#ef4444;">
               <i class="bi bi-box-arrow-right" style="color:#ef4444;"></i> Déconnexion

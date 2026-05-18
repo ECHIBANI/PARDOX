@@ -27,7 +27,7 @@
                     </div>
                     @endif
 
-                    <form action="{{ route('contact.send') }}" method="POST">
+                    <form action="{{ parse_url(route('contact.send'), PHP_URL_PATH) }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <div class="col-md-6">

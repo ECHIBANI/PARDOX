@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-pardo navbar-expand-lg sticky-top">
+<nav class="navbar navbar-pardo navbar-expand-lg sticky-top">
   <div class="container align-items-center">
     <a class="navbar-brand" href="{{ route('home') }}">
       <img src="{{ asset('images/logo.png') }}" alt="PARDOX" height="35" style="object-fit: contain;">
@@ -43,7 +43,7 @@
               <li><a class="dropdown-item fw-medium" href="{{ route('client.favorites') }}"><i class="bi bi-heart me-2"></i>Mes favoris</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ parse_url(route('logout'), PHP_URL_PATH) }}" method="POST">
                   @csrf
                   <button type="submit" class="dropdown-item text-danger fw-medium"><i class="bi bi-box-arrow-right me-2"></i>Déconnexion</button>
                 </form>

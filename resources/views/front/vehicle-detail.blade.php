@@ -74,7 +74,7 @@
         <div class="table-card mt-4 p-4 border bg-white" style="border-radius:var(--radius-lg);">
           <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;"><i class="bi bi-chat-right-quote me-2" style="color:var(--cre-blue);"></i>Laisser un avis</h4>
           <p class="text-muted small mb-3">Partagez votre expérience avec ce véhicule. Votre avis apparaîtra sur la page d'accueil !</p>
-          <form action="{{ route('vehicles.comment', $vehicle) }}" method="POST">
+          <form action="{{ parse_url(route('vehicles.comment', $vehicle), PHP_URL_PATH) }}" method="POST">
             @csrf
             <div class="mb-3">
               <label class="form-label fw-bold small" style="color:var(--cre-muted);">Note globale</label>
@@ -115,7 +115,7 @@
           </div>
           @endif
 
-          <form action="{{ route('reservations.store', $vehicle) }}" method="POST" id="bookingForm">
+          <form action="{{ parse_url(route('reservations.store', $vehicle), PHP_URL_PATH) }}" method="POST" id="bookingForm">
             @csrf
             <div class="mb-3">
               <label class="form-label" style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.6);">

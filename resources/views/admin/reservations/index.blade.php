@@ -13,7 +13,7 @@
   </a>
   @endforeach
 
-  <form action="{{ route('admin.reservations') }}" method="GET" class="ms-auto d-flex gap-2">
+  <form action="{{ parse_url(route('admin.reservations'), PHP_URL_PATH) }}" method="GET" class="ms-auto d-flex gap-2">
     @if(request('status'))<input type="hidden" name="status" value="{{ request('status') }}">@endif
     <input type="text" name="search" class="form-control form-control-sm" placeholder="Rechercher…" value="{{ request('search') }}" style="border-radius:50px;min-width:200px;">
     <button type="submit" class="btn btn-sm btn-pardo-primary" style="border-radius:50px;"><i class="bi bi-search"></i></button>
@@ -60,19 +60,19 @@
           <td>
             <div class="d-flex gap-1 align-items-center flex-nowrap">
               @if($res->status === 'pending')
-              <form action="{{ route('admin.reservations.status',$res) }}" method="POST" class="d-inline">
+              <form action="{{ parse_url(route('admin.reservations.status',$res), PHP_URL_PATH) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <input type="hidden" name="status" value="confirmed">
                 <button type="submit" class="btn btn-sm btn-success" title="Confirmer" style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;"><i class="bi bi-check-lg"></i></button>
               </form>
-              <form action="{{ route('admin.reservations.status',$res) }}" method="POST" class="d-inline">
+              <form action="{{ parse_url(route('admin.reservations.status',$res), PHP_URL_PATH) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <input type="hidden" name="status" value="rejected">
                 <button type="submit" class="btn btn-sm btn-danger" title="Refuser" style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;"><i class="bi bi-x-lg"></i></button>
               </form>
               @endif
               @if($res->status === 'confirmed')
-              <form action="{{ route('admin.reservations.status',$res) }}" method="POST" class="d-inline">
+              <form action="{{ parse_url(route('admin.reservations.status',$res), PHP_URL_PATH) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <input type="hidden" name="status" value="completed">
                 <button type="submit" class="btn btn-sm btn-info text-white" title="Marquer terminée" style="width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;">
@@ -102,7 +102,7 @@
                 <h5 class="modal-title" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;">Note — {{ $res->reservation_number }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
               </div>
-              <form action="{{ route('admin.reservations.status',$res) }}" method="POST">
+              <form action="{{ parse_url(route('admin.reservations.status',$res), PHP_URL_PATH) }}" method="POST">
                 @csrf @method('PATCH')
                 <div class="modal-body pt-2">
                   <input type="hidden" name="status" value="{{ $res->status }}">

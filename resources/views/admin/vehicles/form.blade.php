@@ -16,7 +16,7 @@
         </a>
       </div>
       <div class="p-4">
-        <form action="{{ $vehicle->exists ? route('admin.vehicles.update',$vehicle) : route('admin.vehicles.store') }}"
+        <form action="{{ $vehicle->exists ? parse_url(route('admin.vehicles.update',$vehicle), PHP_URL_PATH) : parse_url(route('admin.vehicles.store'), PHP_URL_PATH) }}"
               method="POST" enctype="multipart/form-data">
           @csrf
           @if($vehicle->exists) @method('PUT') @endif

@@ -148,7 +148,7 @@
 
     {{-- SEARCH BAR --}}
     <div class="search-bar mt-5">
-      <form action="{{ route('voitures') }}" method="GET" class="d-flex flex-wrap gap-3 align-items-end w-100">
+      <form action="{{ parse_url(route('voitures'), PHP_URL_PATH) }}" method="GET" class="d-flex flex-wrap gap-3 align-items-end w-100">
         <div class="search-field">
           <label class="prd-label" style="color:rgba(255,255,255,.4);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.4rem">
             <i class="bi bi-geo-alt me-1" style="color:var(--gold)"></i>Ville
@@ -338,7 +338,7 @@
             @foreach($errors->all() as $e)<div>• {{ $e }}</div>@endforeach
           </div>
           @endif
-          <form action="{{ route('comments.store') }}" method="POST">
+          <form action="{{ parse_url(route('comments.store'), PHP_URL_PATH) }}" method="POST">
             @csrf
             <div class="mb-3">
               <label class="prd-label">Véhicule</label>

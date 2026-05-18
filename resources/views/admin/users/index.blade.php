@@ -53,7 +53,7 @@
           </td>
           <td>
             <div class="d-flex gap-2">
-              <form action="{{ route('admin.users.toggle-block',$user) }}" method="POST" class="d-inline">
+              <form action="{{ parse_url(route('admin.users.toggle-block',$user), PHP_URL_PATH) }}" method="POST" class="d-inline">
                 @csrf @method('PATCH')
                 <button type="submit"
                         class="btn btn-sm {{ $user->blocked ? 'btn-success' : 'btn-danger' }}"
@@ -65,7 +65,7 @@
                   @endif
                 </button>
               </form>
-              <form action="{{ route('admin.users.delete',$user) }}" method="POST" class="d-inline">
+              <form action="{{ parse_url(route('admin.users.delete',$user), PHP_URL_PATH) }}" method="POST" class="d-inline">
                 @csrf @method('DELETE')
                 <button type="submit"
                         class="btn btn-sm btn-outline-danger"

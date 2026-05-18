@@ -31,7 +31,7 @@
                     <td style="max-width:300px"><small>{{ $c->body }}</small></td>
                     <td class="text-muted small">{{ $c->created_at->format('d/m/Y') }}</td>
                     <td>
-                        <form action="{{ route('admin.comments.destroy',$c->id) }}" method="POST"
+                        <form action="{{ parse_url(route('admin.comments.destroy',$c->id), PHP_URL_PATH) }}" method="POST"
                               onsubmit="return confirm('Supprimer ce commentaire ?')">
                             @csrf @method('DELETE')
                             <button class="btn btn-sm btn-outline-danger">

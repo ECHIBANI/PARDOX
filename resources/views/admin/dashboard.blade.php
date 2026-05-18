@@ -224,14 +224,14 @@
         <td><strong style="color:var(--blue-primary);">{{ number_format($res->total_price,0,',',' ') }} DH</strong></td>
         <td>
           <div class="d-flex gap-1 flex-wrap">
-            <form action="{{ route('admin.reservations.status', $res) }}" method="POST" class="d-inline">
+            <form action="{{ parse_url(route('admin.reservations.status', $res), PHP_URL_PATH) }}" method="POST" class="d-inline">
               @csrf @method('PATCH')
               <input type="hidden" name="status" value="confirmed">
               <button type="submit" class="btn btn-sm btn-success" style="border-radius:7px;font-size:.78rem;">
                 <i class="bi bi-check-lg"></i> Confirmer
               </button>
             </form>
-            <form action="{{ route('admin.reservations.status', $res) }}" method="POST" class="d-inline">
+            <form action="{{ parse_url(route('admin.reservations.status', $res), PHP_URL_PATH) }}" method="POST" class="d-inline">
               @csrf @method('PATCH')
               <input type="hidden" name="status" value="rejected">
               <button type="submit" class="btn btn-sm btn-danger" style="border-radius:7px;font-size:.78rem;">

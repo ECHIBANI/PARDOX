@@ -42,7 +42,7 @@
             {{-- FORM --}}
             <div class="col-lg-8">
                 <div class="res-card">
-                    <form action="{{ route('reservations.store', $vehicle->id) }}" method="POST">
+                    <form action="{{ parse_url(route('reservations.store', $vehicle->id), PHP_URL_PATH) }}" method="POST">
                         @csrf
 
                         {{-- STEP 1: Client Info --}}

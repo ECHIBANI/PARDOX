@@ -185,7 +185,7 @@
             <h1>Bienvenue</h1>
             <div class="subtitle">Veuillez vous connecter au tableau de bord.</div>
             
-            <form action="{{ route('admin.login.submit') }}" method="POST" class="login-form">
+            <form action="{{ parse_url(route('admin.login.submit'), PHP_URL_PATH) }}" method="POST" class="login-form">
                 @csrf
                 
                 @if($errors->any())

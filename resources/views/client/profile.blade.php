@@ -1,4 +1,4 @@
-﻿@extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Mon Compte — PARDOX')
 
@@ -19,7 +19,7 @@
 
             <div class="card border-0 shadow-sm" style="border-radius: 1rem;">
                 <div class="card-body p-4 p-md-5">
-                    <form action="{{ route('client.profile.update') }}" method="POST">
+                    <form action="{{ parse_url(route('client.profile.update'), PHP_URL_PATH) }}" method="POST">
                         @csrf
                         @method('PUT')
 

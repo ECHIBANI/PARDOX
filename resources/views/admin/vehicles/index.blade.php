@@ -36,7 +36,7 @@
           <a href="{{ route('admin.vehicles.edit',$vehicle) }}" class="btn btn-sm btn-pardo-outline flex-fill text-center">
             <i class="bi bi-pencil me-1"></i>Modifier
           </a>
-          <form action="{{ route('admin.vehicles.delete',$vehicle) }}" method="POST" onsubmit="return confirm('Supprimer ce véhicule ?')">
+          <form action="{{ parse_url(route('admin.vehicles.delete',$vehicle), PHP_URL_PATH) }}" method="POST" onsubmit="return confirm('Supprimer ce véhicule ?')">
             @csrf @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </form>
