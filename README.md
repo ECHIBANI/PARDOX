@@ -8,7 +8,7 @@
 | Couche       | Technologie                         |
 |-------------|--------------------------------------|
 | Backend     | PHP 8.2 · Laravel 11                |
-| Base de données | MySQL 8+ (ou MariaDB 10.6+)     |
+| Base de données | MySQL 8+   |
 | Frontend    | Bootstrap 5.3 · Bootstrap Icons     |
 | Fonts       | Barlow Condensed + DM Sans (Google) |
 | PDF (optionnel) | barryvdh/laravel-dompdf         |
@@ -21,7 +21,7 @@
 ```bash
 php >= 8.2
 composer >= 2.x
-MySQL 8+ ou MariaDB 10.6+
+MySQL 8+ 
 ```
 
 ### 2. Cloner / extraire le projet
