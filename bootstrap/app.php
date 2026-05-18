@@ -10,8 +10,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
    ->withMiddleware(function (Middleware $middleware) {
+    // Force HTTPS in production
     $middleware->append(\App\Http\Middleware\ForceHttps::class);
-    $middleware->append(\App\Http\Middleware\TrustProxies::class);
+
+    // Trust all proxies (Railway)
+    $middleware->trustProxies(at: '*');
 
     $middleware->alias([
         'admin'       => \App\Http\Middleware\AdminOnly::class,
