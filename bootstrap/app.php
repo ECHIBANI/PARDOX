@@ -9,16 +9,16 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([
-            'admin'       => \App\Http\Middleware\AdminOnly::class,
-            'not.blocked' => \App\Http\Middleware\CheckNotBlocked::class,
-        ]);
+   ->withMiddleware(function (Middleware $middleware) {
+    $middleware->append(\App\Http\Middleware\TrustProxies::class);
+    $middleware->append(\App\Http\Middleware\ForceHttps::class);
 
-        $middleware->redirectGuestsTo(fn (\Illuminate\Http\Request $request) => 
-            $request->is('admin*') ? route('admin.login') : route('login')
-        );
-    })
+    $middleware->alias([
+        'admin'       => \App\Http\Middleware\AdminOnly::class,
+        'not.blocked' => \App\Http\Middleware\CheckNotBlocked::class,
+    ]);
+})
+
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
