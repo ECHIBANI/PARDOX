@@ -21,7 +21,9 @@
     </div>
     @endif
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="/connexion">
+
+    
       @csrf
       <div class="mb-3">
         <label class="form-label fw-semibold" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--cre-muted);">
