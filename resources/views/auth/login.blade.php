@@ -21,9 +21,7 @@
     </div>
     @endif
 
-    <form method="POST" action="/connexion">
-
-    
+    <form method="POST" action="{{ parse_url(route('login'), PHP_URL_PATH) }}">
       @csrf
       <div class="mb-3">
         <label class="form-label fw-semibold" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--cre-muted);">
