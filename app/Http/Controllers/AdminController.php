@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class AdminController extends Controller
 {
@@ -107,8 +108,17 @@ class AdminController extends Controller
         $data['available'] = $request->boolean('available', true);
 
         if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file')->store('vehicles', 'public');
-            $data['image'] = $path;
+            if (config('cloudinary.cloud_url')) {
+                // Upload vers Cloudinary (persistant sur Railway)
+                $uploaded = Cloudinary::upload($request->file('image_file')->getRealPath(), [
+                    'folder' => 'pardox/vehicles',
+                ]);
+                $data['image'] = $uploaded->getSecurePath();
+            } else {
+                // Fallback : stockage local
+                $path = $request->file('image_file')->store('vehicles', 'public');
+                $data['image'] = $path;
+            }
         } elseif ($request->filled('image_url')) {
             $data['image'] = $request->image_url;
         }
@@ -143,8 +153,17 @@ class AdminController extends Controller
         $data['available'] = $request->boolean('available');
 
         if ($request->hasFile('image_file')) {
-            $path = $request->file('image_file')->store('vehicles', 'public');
-            $data['image'] = $path;
+            if (config('cloudinary.cloud_url')) {
+                // Upload vers Cloudinary (persistant sur Railway)
+                $uploaded = Cloudinary::upload($request->file('image_file')->getRealPath(), [
+                    'folder' => 'pardox/vehicles',
+                ]);
+                $data['image'] = $uploaded->getSecurePath();
+            } else {
+                // Fallback : stockage local
+                $path = $request->file('image_file')->store('vehicles', 'public');
+                $data['image'] = $path;
+            }
         } elseif ($request->filled('image_url')) {
             $data['image'] = $request->image_url;
         }
