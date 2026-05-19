@@ -15,7 +15,8 @@
   <div class="col-md-6 col-xl-4">
     <div class="vehicle-card-admin">
       <div class="vehicle-img-wrap">
-        <img src="{{ $vehicle->image_url }}" alt="{{ $vehicle->name }}" class="vehicle-img">
+        <img src="{{ $vehicle->image_url }}" alt="{{ $vehicle->name }}" class="vehicle-img"
+             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/94a3b8?text={{ urlencode($vehicle->name) }}';">
         <span class="cat-badge">{{ $vehicle->category }}</span>
         @if(!$vehicle->available)
         <span class="position-absolute top-0 end-0 m-2 badge bg-danger">Indisponible</span>

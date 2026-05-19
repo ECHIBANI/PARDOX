@@ -1,6 +1,7 @@
 <div class="vehicle-card bg-white h-100">
   <div class="vehicle-img-wrap">
-    <img src="{{ $vehicle->image_url }}" alt="{{ $vehicle->name }}" class="vehicle-img" loading="lazy">
+    <img src="{{ $vehicle->image_url }}" alt="{{ $vehicle->name }}" class="vehicle-img" loading="lazy"
+         onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/94a3b8?text={{ urlencode($vehicle->name) }}';">
     <span class="cat-badge">{{ $vehicle->category }}</span>
     @php
       $isFavorite = auth()->check() && auth()->user()->favorites()->where('vehicle_id', $vehicle->id)->exists();

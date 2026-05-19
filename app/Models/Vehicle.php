@@ -44,9 +44,13 @@ class Vehicle extends Model
 
     public function getImageUrlAttribute(): string
     {
-        if (!$this->image) return 'https://via.placeholder.com/600x400?text=No+Image';
-        if (str_starts_with($this->image, 'http')) return $this->image;
-        // Les fichiers uploadés sont dans storage/app/public/vehicles/ via store('vehicles','public')
+        if (!$this->image) {
+            return 'https://placehold.co/600x400/e2e8f0/94a3b8?text=No+Image';
+        }
+        if (str_starts_with($this->image, 'http')) {
+            return $this->image;
+        }
+        // Fichiers uploadés : storage/app/public/vehicles/ via store('vehicles','public')
         return asset('storage/' . $this->image);
     }
 }
